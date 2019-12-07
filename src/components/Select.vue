@@ -500,7 +500,7 @@
          * @return {Object}
          */
         default: (map, vm) => map,
-      }
+      },
 	  
 	  onToggle: {
 		type: Function,
