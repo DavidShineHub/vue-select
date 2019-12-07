@@ -501,6 +501,11 @@
          */
         default: (map, vm) => map,
       }
+	  
+	  onToggle: {
+		type: Function,
+		default: undefined
+	  }
     },
 
     data() {
@@ -677,6 +682,10 @@
         if (ignoredButtons.some(ref => ref.contains(target) || ref === target)) {
           return;
         }
+		
+		if (typeof this.onToggle === 'fucntion' && this.onToggle({ target }) === false) {
+			return;
+		}
 
         if (this.open) {
           this.searchEl.blur();
